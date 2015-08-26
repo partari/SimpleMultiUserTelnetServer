@@ -2,9 +2,6 @@
     "name": "1300762",
     "description": "Simple TCP Multiuser Telnet Server",
     "private": "true",
-    "version": "0.1",
-    "dependencies": {
-    },
     "scripts": {
         "start": "node SimpleMultiuserTelnetServer.js"
     },
