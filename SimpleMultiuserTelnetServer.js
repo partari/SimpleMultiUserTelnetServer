@@ -1,4 +1,4 @@
-var net = require('net');
+﻿var net = require('net');
 
 //Taulukko johon tallennetaan kaikki luodut yhteydet
 var sockets = [];
@@ -8,6 +8,10 @@ var listeningport = process.env.OPENSHIFT_NODEJS_PORT || 15001;
 //Luodaan server niminen palvelu joka palauttaa soketin
 var server = net.createServer(function (socket) {
 
+	//tervehditään käyttäjää
+	socket.write('Tervehdys ' + socket.remoteAddress + ':' + socket.remotePort + '\n');
+	socket.write('\n');
+	
 	//Tallennetaan soketti taulukkoon myöhempää iterointia varten
 	sockets.push(socket);
 
@@ -36,4 +40,4 @@ var server = net.createServer(function (socket) {
     });
 });
 server.listen(listeningport, listeningaddress);
-console.log('Server running at http://127.0.0.1:1337/');
+console.log('Server running at port ' + listeningport);
